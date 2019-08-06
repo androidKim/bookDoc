@@ -1,11 +1,72 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- textview style -->
+    <style name="textStyle1" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:layout_marginLeft">0dp</item>
+        <item name="android:layout_marginRight">0dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/translate</item>
+    </style>
+
+    <style name="textStyle2" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:layout_marginLeft">0dp</item>
+        <item name="android:layout_marginRight">0dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/translate</item>
+    </style>
+
+    <!-- edittext style -->
+    <style name="editTextStyle1" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:inputType">text|textNoSuggestions</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
+    <!-- button style -->
+    <style name="buttonStyle1" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <!--msg dialog  -->
+    <style name="msg_dialog_style" parent="android:Theme.Dialog">
+        <!-- Fill the screen -->
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+
+        <!-- No backgrounds, titles or window float -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+
+        <!-- Just to prove it's working -->
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+
+    </style>
 </resources>

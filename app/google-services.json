@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "65177404568",
+    "firebase_url": "https://bookdoc-92296.firebaseio.com",
+    "project_id": "bookdoc-92296",
+    "storage_bucket": "bookdoc-92296.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:65177404568:android:8c7288d139f3c016",
+        "android_client_info": {
+          "package_name": "com.midasgo.bookdoc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "65177404568-3ctbj4f8u8jb2tq02d2nsjnotb6os3a0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.midasgo.bookdoc",
+            "certificate_hash": "f472f409fbd2efc28d48cc6318ae74286da966cc"
+          }
+        },
+        {
+          "client_id": "65177404568-ra3vq0a787039asmoi7smjcvnb12bvmm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBb7YyjJoObUip8ZT0Gg6O6EzaOPuy_Dbs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "65177404568-ra3vq0a787039asmoi7smjcvnb12bvmm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

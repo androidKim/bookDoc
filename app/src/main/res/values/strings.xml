@@ -1,3 +1,35 @@
 <resources>
-    <string name="app_name">BookDoc</string>
+    <string name="kakao_app_key">d9b37da628bdb4c0dbf98d8c9bf64273</string>
+    <string name="kakao_scheme">kakaod9b37da628bdb4c0dbf98d8c9bf64273</string>
+    <string name="kakaolink_host">kakaolink</string>
+    <string name="kakao_restapi_key">295eaa0eb7147ee768a7f8c664b4dc8c</string>
+    <string name="app_url">https://play.google.com/store/apps/details?id=com.midasgo.bookdoc</string>
+    <string name="app_name">책 기록</string>
+    <string name="start">시작</string>
+    <string name="list">기록</string>
+    <string name="search">검색</string>
+    <string name="setting">설정</string>
+    <string name="title">책 제목</string>
+    <string name="desc">내용</string>
+    <string name="reg_date">작성 일자</string>
+    <string name="total_page">총 페이지</string>
+    <string name="read_page">읽은 페이지</string>
+    <string name="complete">완료</string>
+    <string name="add">책 등록</string>
+    <string name="detail">상세화면</string>
+    <string name="modify">수정</string>
+    <string name="delete">삭제</string>
+    <string name="ok">확인</string>
+    <string name="cancel">취소</string>
+    <string name="version">버전</string>
+
+
+    <string name="dialog_delete_msg">삭제하시겠습니까?</string>
+
+    <string name="hint_search_word">책 검색</string>
+
+    <string name="input_title_msg">책 제목</string>
+    <string name="input_desc_msg">메모</string>
+    <string name="input_read_page_msg">읽은 페이지</string>
+    <string name="input_total_page_msg">전체 페이지</string>
 </resources>
