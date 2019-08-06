@@ -114,7 +114,7 @@ class ActAddBook : AppCompatActivity() {
 
         //완료이벤트
         binding.btnComplete.clicks()
-            .debounce(1000, TimeUnit.MILLISECONDS)//중복클릭 방지
+            .debounce(500, TimeUnit.MILLISECONDS)//중복클릭 방지
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 if(checkValidation()){
