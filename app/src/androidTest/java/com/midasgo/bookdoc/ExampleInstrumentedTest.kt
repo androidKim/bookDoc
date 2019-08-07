@@ -19,6 +19,4 @@ class ExampleInstrumentedTest {
         val appContext = InstrumentationRegistry.getTargetContext()
         assertEquals("com.midasgo.bookdoc", appContext.packageName)
     }
-
-
 }
