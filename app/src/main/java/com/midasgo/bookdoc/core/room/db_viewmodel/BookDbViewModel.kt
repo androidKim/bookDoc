@@ -37,7 +37,7 @@ class BookDbViewModel (application: Application) : AndroidViewModel(application)
         bookRepository!!.deleteAll()
     }
 
-    fun select() {
+    fun selectAll() {
         bookRepository!!.selectAll()
     }
 }

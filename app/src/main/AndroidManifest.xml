@@ -3,6 +3,7 @@
           package="com.midasgo.bookdoc">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 
     <application
             android:name=".MyApp"
@@ -13,38 +14,56 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
 
-        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
+        <meta-data
+                android:name="com.kakao.sdk.AppKey"
+                android:value="@string/kakao_app_key"/>
 
-        <activity android:name=".ui.act.ActIntro"
-                  android:screenOrientation="portrait">
+        <receiver android:name=".receiver.AlarmReceiver"></receiver>
+        <service
+                android:name=".service.AlarmService"
+                android:enabled="true">
+        </service>
+
+        <activity
+                android:name=".ui.act.ActIntro"
+                android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
 
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity
+                android:name=".ui.act.ActLogin"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTheme">
+        </activity>
+        <activity
+                android:name=".ui.act.ActMain"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTheme">
             <intent-filter>
-                <data android:scheme="@string/kakao_scheme" android:host="@string/kakaolink_host" />
+                <data
+                        android:host="@string/kakaolink_host"
+                        android:scheme="@string/kakao_scheme"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.act.ActLogin"
-                  android:theme="@style/AppTheme"
-                  android:screenOrientation="portrait">
+        <activity
+                android:name=".ui.act.ActAddBook"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTheme">
         </activity>
-        <activity android:name=".ui.act.ActMain"
-                  android:theme="@style/AppTheme"
-                  android:screenOrientation="portrait">
+        <activity
+                android:name=".ui.act.ActBookDetail"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTheme">
         </activity>
-        <activity android:name=".ui.act.ActAddBook"
-                  android:theme="@style/AppTheme"
-                  android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".ui.act.ActBookDetail"
-                  android:theme="@style/AppTheme"
-                  android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".ui.act.ActModifyBook"
-                  android:theme="@style/AppTheme"
-                  android:screenOrientation="portrait">
+        <activity
+                android:name=".ui.act.ActModifyBook"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTheme">
         </activity>
     </application>
+
 </manifest>

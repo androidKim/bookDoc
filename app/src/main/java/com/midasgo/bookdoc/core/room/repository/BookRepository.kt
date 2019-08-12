@@ -21,7 +21,6 @@ class BookRepository(application: Application)
     fun selectAll():LiveData<List<BookEntity>> {
         return bookList!!
     }
-
     fun deleteAll()
     {
         deleteAllAsyncTask(bookDao!!).execute()
@@ -67,5 +66,4 @@ class BookRepository(application: Application)
             return null
         }
     }
-
 }
