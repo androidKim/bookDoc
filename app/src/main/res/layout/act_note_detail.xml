@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:title="@string/note_view"
+            app:titleTextColor="@color/white"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="4dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar">
+
+            <TextView
+                android:layout_alignParentTop="true"
+                android:textColor="@color/black"
+                android:id="@+id/tvTitle"
+                android:padding="8dp"
+                android:textStyle="bold"
+                tools:text="가나다라"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                tools:text="내용입니다."
+                android:textColor="@color/black"
+                android:id="@+id/tvNoteContents"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/tvTitle"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/btnUpload"
+                android:gravity="left|top"
+                android:padding="8dp"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/btnUpload"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorPrimary"
+                android:padding="8dp"
+                android:text="@string/upload_note_board"
+                android:textColor="@color/white"
+                android:textSize="15dp" />
+
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:theme="@style/Widget.AppCompat.ProgressBar"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>
