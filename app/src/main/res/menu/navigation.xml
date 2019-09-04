@@ -12,6 +12,16 @@
             android:title="@string/search"/>
 
     <item
+            android:id="@+id/navigation_wish"
+            android:icon="@drawable/ic_favorite_black_24dp"
+            android:title="@string/wish"/>
+
+    <item
+        android:id="@+id/navigation_note_board"
+        android:icon="@drawable/ic_people_black_24dp"
+        android:title="@string/note_board"/>
+
+    <item
             android:id="@+id/navigation_setting"
             android:icon="@drawable/ic_settings_black_24dp"
             android:title="@string/setting"/>

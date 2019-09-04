@@ -5,21 +5,20 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         >
     <data>
-        <variable name="model" type="com.midasgo.bookdoc.core.viewmodel.SearchViewModel"/>
+        <variable name="model" type="com.midasgo.bookdoc.viewmodel.SearchViewModel"/>
 
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
             android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <RelativeLayout
+        <RelativeLayout android:layout_alignParentTop="true"
             android:id="@+id/lyTop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            app:layout_constraintTop_toTopOf="parent">
+            android:paddingRight="8dp">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivIcon"
@@ -39,12 +38,21 @@
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="8dp"
-            tools:listitem="@layout/row_search_book"
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/lyTop">
+                android:layout_marginTop="8dp"
+                tools:listitem="@layout/row_search_book"
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lyTop"
+        >
         </androidx.recyclerview.widget.RecyclerView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:visibility="gone"
+            android:theme="@style/Widget.AppCompat.ProgressBar"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
 </layout>

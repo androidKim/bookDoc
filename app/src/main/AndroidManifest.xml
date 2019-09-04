@@ -1,66 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.midasgo.bookdoc">
+    package="com.midasgo.bookdoc">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
-            android:name=".MyApp"
-            android:allowBackup="true"
-            android:icon="@mipmap/app_icon"
-            android:label="@string/app_name"
-            android:roundIcon="@mipmap/app_icon"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme">
+        android:name=".MyApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/app_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/app_icon"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/AppTheme">
 
         <meta-data
-                android:name="com.kakao.sdk.AppKey"
-                android:value="@string/kakao_app_key"/>
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key" />
 
         <receiver android:name=".receiver.AlarmReceiver"></receiver>
         <service
-                android:name=".service.AlarmService"
-                android:enabled="true">
-        </service>
+            android:name=".service.AlarmService"
+            android:enabled="true"></service>
 
         <activity
-                android:name=".ui.act.ActIntro"
-                android:screenOrientation="portrait">
+            android:name=".view.activity.ActIntro"
+            android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-                android:name=".ui.act.ActLogin"
-                android:screenOrientation="portrait"
-                android:theme="@style/AppTheme">
-        </activity>
+            android:name=".view.activity.ActLogin"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
         <activity
-                android:name=".ui.act.ActMain"
-                android:launchMode="singleTask"
-                android:screenOrientation="portrait"
-                android:theme="@style/AppTheme">
+            android:name=".view.activity.ActMain"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <data
-                        android:host="@string/kakaolink_host"
-                        android:scheme="@string/kakao_scheme"/>
+                    android:host="@string/kakaolink_host"
+                    android:scheme="@string/kakao_scheme" />
             </intent-filter>
         </activity>
         <activity
-                android:name=".ui.act.ActAddBook"
-                android:screenOrientation="portrait"
-                android:theme="@style/AppTheme">
-        </activity>
+            android:name=".view.activity.ActAddBook"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
         <activity
-                android:name=".ui.act.ActBookDetail"
-                android:screenOrientation="portrait"
-                android:theme="@style/AppTheme">
-        </activity>
+            android:name=".view.activity.ActBookDetail"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
         <activity
-                android:name=".ui.act.ActModifyBook"
+            android:name=".view.activity.ActModifyBook"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".view.activity.ActNoteWrite"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
+
+        <activity
+                android:name=".view.activity.NoteDetailActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme">
         </activity>

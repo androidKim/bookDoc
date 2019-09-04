@@ -5,12 +5,12 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.multidex.MultiDex
 import androidx.multidex.MultiDexApplication
-import com.midasgo.bookdoc.core.SharedPreferenceCtrl
-import com.midasgo.bookdoc.core.api.ApiProvider
-import com.midasgo.bookdoc.ui.act.ActLogin
-import com.midasgo.bookdoc.ui.act.ActMain
-import com.midasgo.bookdoc.ui.custom.dialog.MessageDialog
-import com.midasgo.bookdoc.ui.custom.dialog.MessageDialogYn
+import com.midasgo.bookdoc.preference.SharedPreferenceCtrl
+import com.midasgo.bookdoc.remote_data_source.ApiProvider
+import com.midasgo.bookdoc.view.activity.ActLogin
+import com.midasgo.bookdoc.view.activity.ActMain
+import com.midasgo.bookdoc.view.custom.dialog.MessageDialog
+import com.midasgo.bookdoc.view.custom.dialog.MessageDialogYn
 import io.reactivex.disposables.CompositeDisposable
 
 class MyApp : MultiDexApplication() {

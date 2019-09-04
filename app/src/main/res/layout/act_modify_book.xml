@@ -6,7 +6,7 @@
     <data>
         <variable
                 name="bookViewModel"
-                type="com.midasgo.bookdoc.core.viewmodel.BookViewModel" />
+                type="com.midasgo.bookdoc.viewmodel.BookViewModel" />
     </data>
 
 
@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scrollbars="vertical"
-                tools:context=".ui.act.ActAddBook">
+                tools:context=".view.activity.ActAddBook">
 
             <androidx.appcompat.widget.Toolbar
                     app:title="@string/modify"
@@ -34,7 +34,7 @@
                     tools:layout_editor_absoluteX="8dp" android:id="@+id/toolbar"/>
 
             <EditText
-                    android:text="@{bookViewModel.title}"
+
                     style="@style/editTextStyle1"
                     android:inputType="text"
                     android:hint="@string/title" android:id="@+id/editTitle"
@@ -42,7 +42,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
 
             <EditText
-                    android:text="@{bookViewModel.desc}"
+
                     app:layout_constraintTop_toBottomOf="@+id/editTitle"
                     style="@style/editTextStyle1"
                     android:maxLines="10"
@@ -56,7 +56,6 @@
                           android:orientation="horizontal">
 
                 <EditText
-                        android:text="@{bookViewModel.readPage}"
                         android:id="@+id/editReadPage"
                         android:layout_weight="1"
                         style="@style/editTextStyle1"
@@ -70,7 +69,6 @@
                           android:text="/"/>
 
                 <EditText
-                        android:text="@{bookViewModel.totalPage}"
                         android:id="@+id/editTotalPage"
                         android:layout_weight="1"
                         style="@style/editTextStyle1"

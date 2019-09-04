@@ -11,7 +11,7 @@ import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import com.midasgo.bookdoc.R
 import com.midasgo.bookdoc.com.midasgo.bookdoc.common.Constant
-import com.midasgo.bookdoc.ui.act.ActMain
+import com.midasgo.bookdoc.view.activity.ActMain
 
 /*
 등록된 책중 랜덤으로 알림
@@ -44,7 +44,13 @@ class AlarmService : Service() {
             notificationManager.createNotificationChannel(channel)
 
             val notificationIntent = Intent(this, ActMain::class.java)
-            notificationIntent.putExtra(Constant.INTENT_DATA_NOTIFICATION_CHANNEL_ID, CHANNEL_ID) //channel id 전
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                notificationIntent.putExtra(Constant.INTENT_DATA_NOTIFICATION_CHANNEL_ID, CHANNEL_ID) //channel id 전
+            }
+            else
+            {
+                notificationIntent.putExtra(Constant.INTENT_DATA_NOTIFICATION_CHANNEL_ID, 1)
+            }
             notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 
             var pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT)
