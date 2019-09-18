@@ -9,8 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager
@@ -128,13 +128,13 @@ class BookListRvAdapter(val context: Context, val activity: Activity, val reques
     }
     /*********************** viewholder ***********************/
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var lyBase:ConstraintLayout
+        var lyBase:RelativeLayout
         var ivThumbnail:ImageView
         var tvTitle: TextView
         var tvPage: TextView
         var tvDate: TextView
         init {
-            lyBase = itemView?.findViewById<ConstraintLayout>(R.id.lyBase)
+            lyBase = itemView?.findViewById<RelativeLayout>(R.id.lyBase)
             ivThumbnail = itemView?.findViewById<ImageView>(R.id.ivThumbnail)
             tvTitle = itemView?.findViewById<TextView>(R.id.tvTitle)
             tvPage = itemView?.findViewById<TextView>(R.id.tvPage)

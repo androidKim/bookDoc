@@ -5,6 +5,7 @@
     <string name="kakao_restapi_key">295eaa0eb7147ee768a7f8c664b4dc8c</string>
     <string name="app_url">https://play.google.com/store/apps/details?id=com.midasgo.bookdoc</string>
     <string name="app_name">책 기록</string>
+    <string name="error_msg">서버통신에 실패했습니다.\n잠시후 다시 시도해주세요.</string>
     <string name="start">시작</string>
     <string name="list">기록</string>
     <string name="search">검색</string>
@@ -32,21 +33,34 @@
     <string name="view_note">노트보기</string>
     <string name="upload_note_board">노트게시판에 올리기</string>
     <string name="dialog_title">알림</string>
+    <string name="toolbar_title_booklist">읽고 있는 책</string>
+    <string name="toolbar_title_search">책이름 검색</string>
+    <string name="toolbar_title_wish">앞으로 읽을 책</string>
+    <string name="toolbar_title_board">익명 노트 게시판</string>
+    <string name="toolbar_title_setting">설정</string>
+    <string name="toolbar_board_detail_title">게시판 상세화면</string>
+    <string name="toolbar_reply_list_title">댓글</string>
+    <string name="refresh">새로고침</string>
+    <string name="registration">등록</string>
 
     <string name="dialog_delete_msg">삭제하시겠습니까?</string>
     <string name="dialog_save_msg">저장하시겠습니까?</string>
     <string name="dialog_modify_msg">변경하시겠습니까?</string>
-    <string name="dialog_upload_note_msg">노트게시판에 올리면 다른 사람들도 나의 글을 읽을 수 있습니다</string>
+    <string name="dialog_upload_note_msg">익명 노트게시판에 올리면 다른 사람들도 나의 글을 읽을 수 있습니다</string>
+    <string name="dialog_delete_wish_msg">위시리스트에서 제거 하시겠습니까?</string>
     <string name="add_wish_complete_msg">위시리스트에 담았습니다.</string>
-    <string name="note_write_hint_msg">나만의 노트를 작성해보세요.\n원한다면 노트게시판에서 다른사람과 나의 노트를 공유하세요.</string>
+    <string name="note_write_hint_msg">나만의 노트를 작성해보세요.\n원한다면 익명 노트게시판에서 다른사람과 나의 노트를 공유하세요.</string>
     <string name="toast_add_note_complte_msg">노트가 저장되었습니다.</string>
     <string name="toast_delete_note_complte_msg">노트가 삭제되었습니다.</string>
     <string name="toast_update_note_complte_msg">노트가 수정되었습니다.</string>
     <string name="toast_note_empty">제목 또는 내용이 비어있습니다.</string>
+    <string name="toast_board_id_incorrect">존재하지 않는 게시글 정보입니다.</string>
+    <string name="toast_input_reply_plz">댓글을 입력하세요.</string>
     <string name="upload_complte_msg">업로드 완료되었습니다.</string>
-    <string name="already_upload_note">업로드 완료된 노트입니다.</string>
+    <string name="already_upload_note">익명 업로드 완료된 노트입니다.</string>
 
     <string name="hint_search_word">책 검색</string>
+    <string name="hint_reply_write">댓글 내용을 입력하세요.(100자 이하)</string>
 
     <string name="input_title_msg">책 제목</string>
     <string name="input_desc_msg">메모</string>

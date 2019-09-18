@@ -27,7 +27,7 @@ class NoteRepository(application: Application)
             return noteDao!!.selectItem(book_key)!!
         }
         else {
-            return NoteEntity(0,"","",0, false)
+            return NoteEntity(0,"","","",0,false)
         }
     }
 

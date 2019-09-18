@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.midasgo.bookdoc.viewmodel.BoardDetailViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:title="@string/toolbar_board_detail_title"
+            app:titleTextColor="@color/white" />
+
+
+        <TextView
+            android:id="@+id/tvContent"
+            style="@style/textStyle2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/btnReplyList"
+            android:layout_below="@+id/toolbar"
+            android:padding="8dp"
+            android:scrollbars="vertical"
+            tools:text="노트내용" />
+
+
+        <Button
+            android:onClick="@{(view) -> viewmodel.onClickGoReply(view)}"
+            android:background="@color/gray"
+            android:id="@+id/btnReplyList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            tools:text="댓글(0)"
+            android:text="" />
+    </RelativeLayout>
+</layout>

@@ -1,10 +1,11 @@
 package com.midasgo.bookdoc.view.fragment
 
 import android.content.Context
+import android.os.AsyncTask
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -16,19 +17,53 @@ import com.bumptech.glide.RequestManager
 import com.midasgo.bookdoc.MyApp
 import com.midasgo.bookdoc.R
 import com.midasgo.bookdoc.databinding.FragWishListBinding
-import com.midasgo.bookdoc.structure.book
 import com.midasgo.bookdoc.model.entity.WishEntity
-import com.midasgo.bookdoc.viewmodel.WishViewModel
+import com.midasgo.bookdoc.structure.book
 import com.midasgo.bookdoc.view.adapter.WishListRvAdapter
+import com.midasgo.bookdoc.viewmodel.WishViewModel
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.frag_book_list.*
 
+
+
 class FragWish : Fragment(), SwipeRefreshLayout.OnRefreshListener, WishListRvAdapter.ifCallback {
     //recyclerview interface callback
-    override fun deleteItem(item: book) {
-        var viewModel: WishViewModel = ViewModelProviders.of(this).get(WishViewModel::class.java)
-        viewModel.delete(WishEntity.getEntity(item))
+    override fun deleteItem(item: book, position:Int) {
+        val dialogBuilder: AlertDialog.Builder = AlertDialog.Builder(mContext!!)
+        dialogBuilder.setTitle(mContext!!.resources.getString(R.string.dialog_title))
+        dialogBuilder.setMessage(mContext!!.resources.getString(R.string.dialog_delete_wish_msg))
+                .setCancelable(false)
+                .setPositiveButton(mContext!!.resources.getString(R.string.ok)){DialogInterface, i ->
+                    var viewModel: WishViewModel = ViewModelProviders.of(this).get(WishViewModel::class.java)
+
+                    object:AsyncTask<Void, Void, Void>(){
+
+                        override fun onPreExecute() {
+                            super.onPreExecute()
+                            binding.progressBar.visibility = View.VISIBLE
+                        }
+
+                        override fun doInBackground(vararg p0: Void?): Void? {
+                            Thread.sleep(500)
+                            viewModel.delete(WishEntity.getEntity(item))
+                            return null
+                        }
+
+                        override fun onPostExecute(result: Void?) {
+                            super.onPostExecute(result)
+                            mBookList.removeAt(position)
+                            mAdapter!!.notifyDataSetChanged()
+                            binding.progressBar.visibility = View.GONE
+                        }
+                    }.execute()
+                }
+                .setNegativeButton(mContext!!.resources.getString(R.string.cancel)){DialogInterface, i ->
+
+                }
+        dialogBuilder.show()
+
     }
+
 
     /********************* member *********************/
     private val disposable = CompositeDisposable()
@@ -49,7 +84,10 @@ class FragWish : Fragment(), SwipeRefreshLayout.OnRefreshListener, WishListRvAda
             return pFragment
         }
     }
-    /********************* system function *********************/
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
     //---------------------------------------------------------
     //Layout 을 inflate 하는 곳, View 객체를 얻어서 초기화
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -73,6 +111,27 @@ class FragWish : Fragment(), SwipeRefreshLayout.OnRefreshListener, WishListRvAda
         initValue()
         initLayout()
     }
+
+    /*
+    툴바옵션메뉴
+     */
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.toolbar_wish_menu, menu)
+        var menuItem: MenuItem = menu!!.findItem(R.id.menu_refresh).setVisible(true)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item!!.itemId){
+            android.R.id.home->{//메뉴버튼
+
+            }
+            R.id.menu_refresh->{//새로고침
+                setRefresh()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
     /********************* user function *********************/
     //---------------------------------------------------------
     //
@@ -82,6 +141,9 @@ class FragWish : Fragment(), SwipeRefreshLayout.OnRefreshListener, WishListRvAda
     //---------------------------------------------------------
     //
     fun initLayout() {
+        setHasOptionsMenu(true)//use option menu
+        (activity as AppCompatActivity).setSupportActionBar(binding.toolbar)
+
         //recycler view setting.
         mBookList = ArrayList<book>()
         mAdapter = WishListRvAdapter(mContext!!, activity!!, mRequestManager!!, mBookList!!, this)

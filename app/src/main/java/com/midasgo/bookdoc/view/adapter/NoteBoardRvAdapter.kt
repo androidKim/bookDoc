@@ -3,6 +3,7 @@ package com.midasgo.bookdoc.view.adapter
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +17,9 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.midasgo.bookdoc.R
+import com.midasgo.bookdoc.com.midasgo.bookdoc.common.Constant
 import com.midasgo.bookdoc.structure.note
+import com.midasgo.bookdoc.view.activity.BoardDetailActivity
 
 
 class NoteBoardRvAdapter(val context: Context, val activity: Activity, val requestManager:RequestManager, var list: ArrayList<note>) : RecyclerView.Adapter<NoteBoardRvAdapter.ViewHolder>()
@@ -66,6 +69,9 @@ class NoteBoardRvAdapter(val context: Context, val activity: Activity, val reque
         holder.lyBase!!.tag = pInfo
         holder.lyBase!!.setOnClickListener {
             //item click
+            var pIntent:Intent = Intent(context!!, BoardDetailActivity::class.java)
+            pIntent.putExtra(Constant.INTENT_DATA_BOARD_ID, pInfo.id)
+            context.startActivity(pIntent)
         }
     }
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:padding="8dp"
+        android:id="@+id/lyBase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/ivThumbnail"
+        android:orientation="vertical">
+
+        <TextView
+            android:textSize="15dp"
+            android:id="@+id/tvContent"
+            style="@style/textStyle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:text=""
+            tools:text="정말 좋은 글이네요" />
+
+        <TextView
+            android:textColor="@color/gray"
+            android:textSize="12dp"
+            android:id="@+id/tvRegDate"
+            style="@style/textStyle1"
+            android:layout_width="wrap_content"
+            android:text=""
+            tools:text="2019.10.22" />
+
+        <View
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/black"/>
+    </LinearLayout>
+
+</layout>

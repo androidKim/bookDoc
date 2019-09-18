@@ -46,6 +46,7 @@ class ActNoteWrite : AppCompatActivity(), MessageDialogYn.ifCallback {
     var mRequestManager: RequestManager? = null
     lateinit var bookInfo: book
     var noteText:String?=null
+    var noteTitle:String?=null
     /********************* controller *********************/
 
     /********************* system function *********************/
@@ -109,6 +110,7 @@ class ActNoteWrite : AppCompatActivity(), MessageDialogYn.ifCallback {
     fun recvIntentData(){
         bookInfo = intent.getParcelableExtra(Constant.INTENT_DATA_BOOK_INFO)
         noteText = intent.getStringExtra(Constant.INTENT_DATA_NOTE_TEXT)
+        noteTitle = intent.getStringExtra(Constant.INTENT_DATA_NOTE_TITLE)
     }
 
     fun initLayout(){
@@ -120,9 +122,10 @@ class ActNoteWrite : AppCompatActivity(), MessageDialogYn.ifCallback {
         }
 
         if(noteText != null)
-        {
             binding.editContents.setText(noteText)
-        }
+
+        if(noteTitle != null)
+            binding.editTitle.setText(noteTitle)
     }
     //---------------------------------------------------
     //
@@ -140,9 +143,9 @@ class ActNoteWrite : AppCompatActivity(), MessageDialogYn.ifCallback {
 
                 val item:NoteEntity = viewModel!!.selectItem(bookInfo.id)
                 if(item.id > 0)
-                    viewModel!!.update(NoteEntity(item.id, binding.editTitle.text.toString(), binding.editContents.text.toString(), bookInfo.id, false))//update
+                    viewModel!!.update(NoteEntity(item.id, binding.editTitle.text.toString(), binding.editContents.text.toString(),item.book_name, item.book_key, false))//update
                 else
-                    viewModel!!.insert(NoteEntity(0,binding.editTitle.text.toString(), binding.editContents.text.toString(), bookInfo.id, false))//insert
+                    viewModel!!.insert(NoteEntity(0,binding.editTitle.text.toString(), binding.editContents.text.toString(),item.book_name, item.book_key, false))//insert
 
                 return null
             }

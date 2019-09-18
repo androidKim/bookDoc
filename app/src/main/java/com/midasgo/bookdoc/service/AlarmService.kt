@@ -33,7 +33,7 @@ class AlarmService : Service() {
         super.onCreate()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val CHANNEL_ID = "cannel_id"
+            val CHANNEL_ID = "channel_id"
             val channel = NotificationChannel(
                 CHANNEL_ID,
                 "channel_name",
@@ -63,7 +63,6 @@ class AlarmService : Service() {
                 .build()
 
             startForeground(1, notification)
-
         }
     }
 

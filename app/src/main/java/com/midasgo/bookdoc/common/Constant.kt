@@ -9,6 +9,8 @@ open class Constant {
         val INTENT_DATA_BOOK_KEY:String = "INTENT_DATA_BOOK_KEY"
         val INTENT_DATA_NOTE_KEY:String = "INTENT_DATA_NOTE_KEY"
         val INTENT_DATA_NOTE_TEXT:String = "INTENT_DATA_NOTE_TEXT"
+        val INTENT_DATA_NOTE_TITLE:String = "INTENT_DATA_NOTE_TITLE"
+        val INTENT_DATA_BOARD_ID:String = "INTENT_DATA_BOARD_ID"
 
         //REQUESTCODE
         val FOR_RESULT_DELETE:Int = 9999

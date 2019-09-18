@@ -22,6 +22,6 @@ interface NoteDao {
     @Query("SELECT * FROM tb_note ORDER BY id ASC")
     fun selectAll(): LiveData<List<NoteEntity>>
 
-    @Query("SELECT * FROM tb_note WHERE book_key = :book_key")
-    fun selectItem(book_key:Int):NoteEntity
+    @Query("SELECT * FROM tb_note WHERE id = :id")
+    fun selectItem(id:Int):NoteEntity
 }

@@ -70,6 +70,17 @@
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme">
         </activity>
+
+        <activity
+            android:name=".view.activity.BoardDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity
+            android:name=".view.activity.ReplyListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
 
 </manifest>

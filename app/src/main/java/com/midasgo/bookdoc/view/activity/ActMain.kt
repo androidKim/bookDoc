@@ -29,6 +29,12 @@ class ActMain : AppCompatActivity() {
     private lateinit var binding:ActMainBinding
     private var mContext:Context ?= null
     private var mApp: MyApp?= null
+
+    private var bookListFragment:FragBookList?=null
+    private var noteBoardFragment:FragNoteBoard?=null
+    private var searchFragment:FragSearch?= null
+    private var wishFragment:FragWish?=null
+    private var settingFragment:FragSetting?=null
     /****************** system function ******************/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,8 +69,8 @@ class ActMain : AppCompatActivity() {
         when(resultCode)
         {
             Constant.FOR_RESULT_DELETE ->{
-                val fragment = FragBookList()
-                addFragment(fragment)
+                bookListFragment = FragBookList()
+                replaceFragment(bookListFragment!!)
             }
         }
     }
@@ -84,10 +90,8 @@ class ActMain : AppCompatActivity() {
         }
     }
     private fun initLayout(){
-        val fragment = FragBookList()
-        addFragment(fragment)
-
-
+        bookListFragment = FragBookList()//start fragment
+        replaceFragment(bookListFragment!!)
     }
 
     private fun setAlarmManager(){
@@ -123,36 +127,140 @@ class ActMain : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_list -> {
-                val fragment = FragBookList()
-                addFragment(fragment)
+                if (bookListFragment == null) {
+                    bookListFragment = FragBookList()
+                    addFragment(bookListFragment!!)
+                }
+                else
+                {
+                    supportFragmentManager.beginTransaction().show(bookListFragment!!).commit()
+                }
+
+                if(searchFragment != null)
+                    supportFragmentManager.beginTransaction().hide(searchFragment!!).commit()
+
+                if(wishFragment != null)
+                    supportFragmentManager.beginTransaction().hide(wishFragment!!).commit()
+
+                if(noteBoardFragment != null)
+                    supportFragmentManager.beginTransaction().hide(noteBoardFragment!!).commit()
+
+                if(settingFragment != null)
+                    supportFragmentManager.beginTransaction().hide(settingFragment!!).commit()
+
+
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_search -> {
-                val fragment = FragSearch()
-                addFragment(fragment)
+                if (searchFragment == null) {
+                    searchFragment = FragSearch()
+                    addFragment(searchFragment!!)
+                }
+                else
+                {
+                    supportFragmentManager.beginTransaction().show(searchFragment!!).commit()
+                }
+
+                if(bookListFragment != null)
+                    supportFragmentManager.beginTransaction().hide(bookListFragment!!).commit()
+
+                if(wishFragment != null)
+                    supportFragmentManager.beginTransaction().hide(wishFragment!!).commit()
+
+                if(noteBoardFragment != null)
+                    supportFragmentManager.beginTransaction().hide(noteBoardFragment!!).commit()
+
+                if(settingFragment != null)
+                    supportFragmentManager.beginTransaction().hide(settingFragment!!).commit()
+
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_wish -> {
-                val fragment = FragWish()
-                addFragment(fragment)
+                if (wishFragment == null) {
+                    wishFragment = FragWish()
+                    addFragment(wishFragment!!)
+                }
+                else{
+                    supportFragmentManager.beginTransaction().show(wishFragment!!).commit()
+                }
+
+                if(bookListFragment != null)
+                    supportFragmentManager.beginTransaction().hide(bookListFragment!!).commit()
+
+                if(searchFragment != null)
+                    supportFragmentManager.beginTransaction().hide(searchFragment!!).commit()
+
+                if(noteBoardFragment != null)
+                    supportFragmentManager.beginTransaction().hide(noteBoardFragment!!).commit()
+
+                if(settingFragment != null)
+                    supportFragmentManager.beginTransaction().hide(settingFragment!!).commit()
+
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_note_board -> {
-                val fragment = FragNoteBoard()
-                addFragment(fragment)
+                if (noteBoardFragment == null) {
+                    noteBoardFragment = FragNoteBoard()
+                    addFragment(noteBoardFragment!!)
+                }
+                else
+                {
+                    supportFragmentManager.beginTransaction().show(noteBoardFragment!!).commit()
+                }
+
+                if(bookListFragment != null)
+                    supportFragmentManager.beginTransaction().hide(bookListFragment!!).commit()
+
+                if(searchFragment != null)
+                    supportFragmentManager.beginTransaction().hide(searchFragment!!).commit()
+
+                if(wishFragment != null)
+                    supportFragmentManager.beginTransaction().hide(wishFragment!!).commit()
+
+                if(settingFragment != null)
+                    supportFragmentManager.beginTransaction().hide(settingFragment!!).commit()
+
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_setting -> {
-                val fragment = FragSetting()
-                addFragment(fragment)
+                if (settingFragment == null) {
+                    settingFragment = FragSetting()
+                    addFragment(settingFragment!!)
+                }else
+                {
+                    supportFragmentManager.beginTransaction().show(settingFragment!!).commit()
+                }
+
+                if(bookListFragment != null)
+                    supportFragmentManager.beginTransaction().hide(bookListFragment!!).commit()
+
+                if(searchFragment != null)
+                    supportFragmentManager.beginTransaction().hide(searchFragment!!).commit()
+
+                if(wishFragment != null)
+                    supportFragmentManager.beginTransaction().hide(wishFragment!!).commit()
+
+                if(noteBoardFragment != null)
+                    supportFragmentManager.beginTransaction().hide(noteBoardFragment!!).commit()
+
                 return@OnNavigationItemSelectedListener true
             }
         }
         false
     }
     //-------------------------------------
-    //change fragment
+    //add fragment 재사용
     private fun addFragment(fragment: Fragment) {
+        supportFragmentManager
+            .beginTransaction()
+            .setCustomAnimations(R.anim.design_bottom_sheet_slide_in, R.anim.design_bottom_sheet_slide_out)
+            .add(R.id.fragmentContainer, fragment, fragment.javaClass.getSimpleName())
+            .commit()
+    }
+
+    //-------------------------------------
+    //replace fragment  새로생성
+    private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
             .setCustomAnimations(R.anim.design_bottom_sheet_slide_in, R.anim.design_bottom_sheet_slide_out)

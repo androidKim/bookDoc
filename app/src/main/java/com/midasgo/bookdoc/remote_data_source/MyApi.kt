@@ -1,6 +1,7 @@
 package com.midasgo.bookdoc.remote_data_source
 
 import com.midasgo.bookdoc.structure.note
+import com.midasgo.bookdoc.structure.reply
 import io.reactivex.Observable
 import retrofit2.Response
 import retrofit2.http.*
@@ -38,12 +39,28 @@ interface MyApi {
                     @Query("target") target:String
                     ): Observable<Response<res_kakao_book>>
 
-    //upload note item
+    //inser note item
     @POST("/note")
     fun setNoteItem(@Body item:note):Observable<Response<res_base>>
-
 
     //note list
     @GET("/note")
     fun getNoteList(): Observable<Response<res_note_list>>
+
+    //note item
+    @GET("/note/{id}")
+    fun getNoteItem(@Path("id") id:Int): Observable<Response<res_note_item>>
+
+
+    //reply list
+    @GET("/reply/list/{note_id}")
+    fun getReplyList(@Path("note_id") note_id:Int): Observable<Response<res_reply_list>>
+
+    //reply count
+    @GET("/reply/count/{note_id}")
+    fun getReplyCount(@Path("note_id") note_id:Int):Observable<Response<res_reply_count>>
+
+    //reply upload
+    @POST("/reply")
+    fun setReply(@Body item: reply):Observable<Response<res_base>>
 }

@@ -26,7 +26,6 @@ import com.midasgo.bookdoc.view.custom.dialog.MessageDialogYn
 import com.midasgo.bookdoc.viewmodel.NoteViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import kotlinx.android.synthetic.main.act_note_write.*
 
 
 /*
@@ -98,6 +97,7 @@ class NoteDetailActivity : AppCompatActivity(), MessageDialogYn.ifCallback {
                 var pIntent: Intent = Intent(mContext!!, ActNoteWrite::class.java)
                 pIntent.putExtra(Constant.INTENT_DATA_BOOK_INFO, bookInfo)
                 pIntent.putExtra(Constant.INTENT_DATA_NOTE_TEXT, binding.tvNoteContents.text.toString())
+                pIntent.putExtra(Constant.INTENT_DATA_NOTE_TITLE, binding.tvTitle.text.toString())
                 startActivityForResult(pIntent, 0)
 
             }
@@ -118,10 +118,10 @@ class NoteDetailActivity : AppCompatActivity(), MessageDialogYn.ifCallback {
     }
 
     fun initLayout() {
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
 
         //toolbar back button event
-        toolbar.setNavigationOnClickListener {
+        binding.toolbar.setNavigationOnClickListener {
             finish()
         }
 
@@ -260,7 +260,7 @@ class NoteDetailActivity : AppCompatActivity(), MessageDialogYn.ifCallback {
 
                 val item:NoteEntity = viewModel!!.selectItem(bookInfo.id)
                 if(item.id > 0)
-                    viewModel!!.update(NoteEntity(item.id, item.title, item.contents, bookInfo.id, true))//update
+                    viewModel!!.update(NoteEntity(item.id, item.title, item.contents, item.book_name, item.book_key, true))//update
 
                 return true
             }

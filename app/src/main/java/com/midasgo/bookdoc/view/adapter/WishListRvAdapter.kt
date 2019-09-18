@@ -17,8 +17,8 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.midasgo.bookdoc.R
-import com.midasgo.bookdoc.structure.book
 import com.midasgo.bookdoc.model.entity.WishEntity
+import com.midasgo.bookdoc.structure.book
 
 
 class WishListRvAdapter(val context: Context, val activity: Activity, val requestManager:RequestManager, var bookList: ArrayList<book>, var pCallbakc:ifCallback) : RecyclerView.Adapter<WishListRvAdapter.ViewHolder>()
@@ -70,10 +70,7 @@ class WishListRvAdapter(val context: Context, val activity: Activity, val reques
 
         //item delete
         holder.btnDelete.setOnClickListener {
-            pCallbakc.deleteItem(pInfo)//db delete
-
-            bookList.removeAt(position)
-            notifyDataSetChanged()
+            pCallbakc.deleteItem(pInfo, position)//db delete
         }
     }
 
@@ -137,6 +134,6 @@ class WishListRvAdapter(val context: Context, val activity: Activity, val reques
     /*********************** interface ***********************/
     interface ifCallback
     {
-        fun deleteItem(item: book)
+        fun deleteItem(item: book, position:Int)
     }
 }
