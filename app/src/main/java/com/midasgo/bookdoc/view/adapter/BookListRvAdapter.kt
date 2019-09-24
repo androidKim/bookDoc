@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.core.app.ActivityCompat.startActivityForResult
@@ -72,6 +73,11 @@ class BookListRvAdapter(val context: Context, val activity: Activity, val reques
             })
             .into(holder.ivThumbnail)
 
+        //진행률
+        holder.progressBar.max = Integer.parseInt(pInfo.total_page)
+        holder.progressBar.progress = Integer.parseInt(pInfo.read_page)
+
+
         holder.lyBase!!.tag = pInfo
         holder.lyBase!!.clicks()//rxBinding
                 .debounce(200, TimeUnit.MILLISECONDS)//중복클릭 방지
@@ -133,12 +139,14 @@ class BookListRvAdapter(val context: Context, val activity: Activity, val reques
         var tvTitle: TextView
         var tvPage: TextView
         var tvDate: TextView
+        var progressBar:ProgressBar
         init {
             lyBase = itemView?.findViewById<RelativeLayout>(R.id.lyBase)
             ivThumbnail = itemView?.findViewById<ImageView>(R.id.ivThumbnail)
             tvTitle = itemView?.findViewById<TextView>(R.id.tvTitle)
             tvPage = itemView?.findViewById<TextView>(R.id.tvPage)
             tvDate = itemView?.findViewById<TextView>(R.id.tvDate)
+            progressBar = itemView?.findViewById<ProgressBar>(R.id.progressBar)
         }
     }
 

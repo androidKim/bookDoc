@@ -66,4 +66,5 @@
     <string name="input_desc_msg">메모</string>
     <string name="input_read_page_msg">읽은 페이지</string>
     <string name="input_total_page_msg">전체 페이지</string>
+    <string name="input_over_page_msg">읽은 페이지지가 총 페이지 보다 클 수는 없습니다.</string>
 </resources>

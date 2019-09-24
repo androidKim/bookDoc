@@ -139,6 +139,11 @@ class ActAddBook : AppCompatActivity() {
         {
             Toast.makeText(mContext!!, mContext!!.resources.getString(R.string.input_total_page_msg), Toast.LENGTH_SHORT).show()
         }
+        else if((Integer.parseInt(mBook.total_page) != 0)
+            && (Integer.parseInt(mBook.read_page) > Integer.parseInt(mBook.total_page)))
+        {
+            Toast.makeText(mContext!!, mContext!!.resources.getString(R.string.input_over_page_msg), Toast.LENGTH_SHORT).show()
+        }
         else{
             bResult = true
         }

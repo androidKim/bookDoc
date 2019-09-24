@@ -51,12 +51,17 @@
                     android:id="@+id/tvDate"
                     style="@style/textStyle1"
                     android:layout_width="wrap_content"
-                    android:layout_marginStart="8dp"
                     android:layout_marginBottom="8dp"
                     android:text=""
                     tools:text="최근 기록일 : 2019.10.22" />
-            </LinearLayout>
 
+                <ProgressBar
+                        android:layout_marginRight="8dp"
+                        android:id="@+id/progressBar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+            </LinearLayout>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </layout>
