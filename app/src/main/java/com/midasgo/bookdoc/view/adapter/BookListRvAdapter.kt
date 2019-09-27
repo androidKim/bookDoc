@@ -54,8 +54,8 @@ class BookListRvAdapter(val context: Context, val activity: Activity, val reques
         var pInfo: book = bookList[position]
 
         holder.tvTitle.text = pInfo.title
-        holder.tvPage.text = String.format("%s / %s", pInfo.read_page, pInfo.total_page)
-        holder.tvDate.text = Util.getDateFromTimestamp(pInfo.reg_date.toLong(), "yyyy-MM-dd")
+        holder.tvPage.text = String.format("%s : %s / %s", context!!.resources.getString(R.string.page_progress), pInfo.read_page, pInfo.total_page)
+        holder.tvDate.text = String.format("%s : %s", context!!.resources.getString(R.string.save_date), Util.getDateFromTimestamp(pInfo.reg_date.toLong(), "yyyy-MM-dd"))
 
         //thumnail..
         requestManager!!

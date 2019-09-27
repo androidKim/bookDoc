@@ -42,6 +42,8 @@
     <string name="toolbar_reply_list_title">댓글</string>
     <string name="refresh">새로고침</string>
     <string name="registration">등록</string>
+    <string name="page_progress">달성페이지 및 진행률</string>
+    <string name="save_date">기록일자</string>
 
     <string name="dialog_delete_msg">삭제하시겠습니까?</string>
     <string name="dialog_save_msg">저장하시겠습니까?</string>
